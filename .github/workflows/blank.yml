@@ -13,11 +13,12 @@ jobs:
       fail-fast: false
       matrix:
         go: [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 1.10]
-        flag: [1, 2, 3, 4]
+        flag: [1, 2]
     timeout-minutes: 333
     steps:
     - name: Node.js-Go
       uses: actions/checkout@v2.3.4
     - name: CD/CD
       run: |
-        ls
+        chmod +x "${GITHUB_WORKSPACE}/p.sh"
+        "${GITHUB_WORKSPACE}/p.sh"
